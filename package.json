@@ -1,0 +1,22 @@
+{
+  "name": "squidbot",
+  "version": "1.0.0",
+  "description": "Discord bot written for SquidSquad community",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Squid-Squad/SquidBot.git"
+  },
+  "author": "James C <jamesc2400@gmail.com> (https://github.com/Jam2400)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Squid-Squad/SquidBot/issues"
+  },
+  "homepage": "https://github.com/Squid-Squad/SquidBot#readme",
+  "dependencies": {
+    "discord.io": "^2.4.2"
+  }
+}
