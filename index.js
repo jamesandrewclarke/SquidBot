@@ -1,5 +1,11 @@
 const Discord = require('discord.js');
-const config = require('./config.json') || {};
+
+try {
+  const config = require('./config.json');
+} catch {
+  const config = {};
+  console.log("No config found");
+}
 
 const client = new Discord.Client();
 
