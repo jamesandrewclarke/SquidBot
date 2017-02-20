@@ -1,8 +1,15 @@
 const Discord = require('discord.js');
 
-const config = require('./config.json');
+try {
+  const config = require('./config.json');
+} catch (e) {
+  const config = {};
+  console.log("No config found");
+}
 
 const client = new Discord.Client();
+
+const token = process.env.DISCORD_TOKEN || config.discord.token;
 
 client.on('ready', function() {
   console.log("Bot ready");
@@ -10,4 +17,4 @@ client.on('ready', function() {
   client.user.setGame('SquidBot');
 });
 
-client.login(config.discord.token);
+client.login(token);
