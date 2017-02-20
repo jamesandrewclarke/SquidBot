@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 try {
   const config = require('./config.json');
-} catch {
+} catch (e) {
   const config = {};
   console.log("No config found");
 }
