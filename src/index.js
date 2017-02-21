@@ -1,14 +1,16 @@
 const Discord = require('discord.js');
 
+var config;
+
 try {
-  const config = require('./config.json'); // eslint-disable-line no-unused-vars
+  config = require('../config.json');
 } catch (e) {
-  const config = {}; // eslint-disable-line no-unused-vars
+  config = {};
 }
 
 const client = new Discord.Client();
 
-const token = process.env.DISCORD_TOKEN || config.discord.token; // eslint-disable-line no-undef
+const token = process.env.DISCORD_TOKEN || config.discord.token; 
 
 client.on('ready', function() {
   client.user.setGame('SquidBot');
