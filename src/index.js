@@ -17,8 +17,8 @@ try {
 
 const client = new Discord.Client();
 
-const token = process.env.DISCORD_TOKEN || config.discord.token;
-const channelID = process.env.CHANNEL || config.discord.channel;
+const TOKEN = process.env.DISCORD_TOKEN || config.discord.token;
+const CHANNEL_ID = process.env.CHANNEL || config.discord.channel;
 
 client.on('ready', function() {
   client.user.setGame('SquidBot | By Jamelele');
@@ -31,8 +31,8 @@ client.on('message', function(message) {
 });
 
 client.on('guildMemberAdd', member => {
-  const channel = client.channels.get(channelID);
+  const channel = client.channels.get(CHANNEL_ID);
   channel.sendMessage(`Welcome, ${member}!`);
 });
 
-client.login(token);
+client.login(TOKEN);
