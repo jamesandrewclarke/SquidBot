@@ -24,7 +24,7 @@ client.on('ready', function() {
 
 client.on('message', function(message) {
   if (message.content.startsWith('!cutescary')) {
-    message.reply(`Cute or scary? \`${randomWord()}\``); // eslint-disable-line quotes
+    message.channel.send(`Cute or scary? \`${randomWord()}\``); // eslint-disable-line quotes
   }
 });
 
