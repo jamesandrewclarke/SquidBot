@@ -1,3 +1,4 @@
+const chalk = require('chalk');
 const Discord = require('discord.js');
 const fs = require('fs');
 
@@ -22,6 +23,7 @@ const CHANNEL_ID = process.env.CHANNEL || config.discord.channel;
 
 client.on('ready', function() {
   client.user.setGame('SquidBot | By Jamelele');
+  chalk.green('Bot ready');
 });
 
 client.on('message', function(message) {
