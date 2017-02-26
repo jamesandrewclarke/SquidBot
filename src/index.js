@@ -4,17 +4,13 @@ const fs = require('fs');
 
 const nounlist = fs.readFileSync('./nounlist.txt').toString().split('\n');
 
-function randomWord() {
+function randomWord() { 
   return nounlist[Math.floor(Math.random() * nounlist.length)];
 }
 
 var config;
 
-try {
-  config = require('../config.json');
-} catch (e) {
-  config = {};
-}
+try { config = require('../config.json'); } catch (e) { config = {};}
 
 const client = new Discord.Client();
 
