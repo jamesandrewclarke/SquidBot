@@ -16,6 +16,7 @@ const client = new Discord.Client();
 
 const TOKEN = process.env.DISCORD_TOKEN || config.discord.token;
 const CHANNEL_ID = process.env.CHANNEL || config.discord.channel;
+const COMMAND_PREFIX = '-';
 
 client.on('ready', function() {
   client.user.setGame('SquidBot | By Jamelele');
@@ -23,7 +24,7 @@ client.on('ready', function() {
 });
 
 client.on('message', function(message) {
-  if (message.content.startsWith('!cutescary')) {
+  if (message.content.startsWith(`${COMMAND_PREFIX}cutescary`)) {
     message.channel.send(`Cute or scary? \`${randomWord()}\``); // eslint-disable-line quotes
   }
 });
