@@ -3,30 +3,27 @@ const fs = require('fs');
 
 const nounlist = fs.readFileSync('./nounlist.txt').toString().split('\n');
 
-function randomWord() {
+function randomWord() { 
   return nounlist[Math.floor(Math.random() * nounlist.length)];
 }
 
 var config;
 
-try {
-  config = require('../config.json');
-} catch (e) {
-  config = {};
-}
+try { config = require('../config.json'); } catch (e) { config = {};}
 
 const client = new Discord.Client();
 
 const TOKEN = process.env.DISCORD_TOKEN || config.discord.token;
 const CHANNEL_ID = process.env.CHANNEL || config.discord.channel;
+const COMMAND_PREFIX = '-';
 
 client.on('ready', function() {
   client.user.setGame('SquidBot | By Jamelele');
 });
 
 client.on('message', function(message) {
-  if (message.content.startsWith('!cutescary')) {
-    message.reply(`Cute or scary? \`${randomWord()}\``); // eslint-disable-line quotes
+  if (message.content.startsWith(`${COMMAND_PREFIX}cutescary`)) {
+    message.channel.send(`Cute or scary? **${randomWord()}**`); // eslint-disable-line quotes
   }
 });
 
