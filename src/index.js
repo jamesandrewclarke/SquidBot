@@ -30,7 +30,7 @@ client.on('message', function(message) {
   }
 });
 
-client.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', function(member) {
   const channel = client.channels.get(CHANNEL_ID);
   channel.sendMessage(`Welcome, ${member}!`);
 });
