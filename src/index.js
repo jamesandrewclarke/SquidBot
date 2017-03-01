@@ -35,4 +35,9 @@ client.on('guildMemberAdd', member => {
   channel.sendMessage(`Welcome, ${member}!`);
 });
 
+client.on('guildMemberRemove', function(member) {
+  const channel = client.channels.get(CHANNEL_ID);
+  channel.sendMessage(`Goodbye, ${member}! Sorry to see you go :(`);
+});
+
 client.login(TOKEN);
