@@ -10,11 +10,7 @@ const CHANNEL_ID = process.env.CHANNEL || config.discord.channel;
 
 var config;
 
-try {
-  config = require('../config.json');
-} catch (e) {
-  config = {};
-}
+try { config = require('../config.json'); } catch (e) { config = {};}
 
 function randomWord() {
   return nounlist[Math.floor(Math.random() * nounlist.length)];
@@ -25,8 +21,8 @@ client.on('ready', function() {
 });
 
 client.on('message', function(message) {
-  if (message.content.startsWith('!word')) {
-    message.reply(`Cute or scary? \`${randomWord()}\``); // eslint-disable-line quotes
+  if (message.content.startsWith(`${COMMAND_PREFIX}cutescary`)) {
+    message.channel.send(`Cute or scary? **${randomWord()}**`); // eslint-disable-line quotes
   }
 });
 
