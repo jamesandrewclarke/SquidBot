@@ -7,6 +7,7 @@ const client = new Discord.Client();
 
 const TOKEN = process.env.DISCORD_TOKEN || config.discord.token;
 const CHANNEL_ID = process.env.CHANNEL || config.discord.channel;
+const COMMAND_PREFIX = '-';
 
 var config;
 
