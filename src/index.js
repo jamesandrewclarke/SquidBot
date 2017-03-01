@@ -3,9 +3,10 @@ const fs = require('fs');
 
 const nounlist = fs.readFileSync('./nounlist.txt').toString().split('\n');
 
-function randomWord() {
-  return nounlist[Math.floor(Math.random() * nounlist.length)];
-}
+const client = new Discord.Client();
+
+const TOKEN = process.env.DISCORD_TOKEN || config.discord.token;
+const CHANNEL_ID = process.env.CHANNEL || config.discord.channel;
 
 var config;
 
@@ -15,10 +16,9 @@ try {
   config = {};
 }
 
-const client = new Discord.Client();
-
-const TOKEN = process.env.DISCORD_TOKEN || config.discord.token;
-const CHANNEL_ID = process.env.CHANNEL || config.discord.channel;
+function randomWord() {
+  return nounlist[Math.floor(Math.random() * nounlist.length)];
+}
 
 client.on('ready', function() {
   client.user.setGame('SquidBot | By Jamelele');
