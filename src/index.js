@@ -33,7 +33,10 @@ client.on('guildMemberRemove', function(member) {
 });
 
 client.on('channelCreate', function(newChannel) {
-  mainChannel.sendMessage(`New channel created: ${newChannel}`);
+  if (newChannel.type == 'text') {
+      mainChannel.sendMessage(`New channel created: ${newChannel}`);
+  }
+
 });
 
 client.login(config.TOKEN);
