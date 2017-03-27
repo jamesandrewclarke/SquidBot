@@ -15,7 +15,7 @@ client.on('ready', function() {
 
 client.on('message', function(message) {
   if (message.content.startsWith(`${config.COMMAND_PREFIX}cutescary`)) {
-    message.channel.send(' ', {embed: EmbedSchema('Cute or scary?', `**{randomWord()}**`)})
+    message.channel.send(' ', {embed: EmbedSchema('Cute or scary?', `**${randomWord()}**`)})
   }
 });
 
