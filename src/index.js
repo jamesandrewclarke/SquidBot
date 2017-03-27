@@ -1,17 +1,11 @@
 const Discord = require('discord.js');
-const fs = require('fs');
-
-const nounlist = fs.readFileSync('./nounlist.txt').toString().split('\n');
 
 const client = new Discord.Client();
 
 const config = require('./config.js');
+const randomWord = require('./util/RandomWord.js');
 
 var mainChannel;
-
-function randomWord() {
-  return nounlist[Math.floor(Math.random() * nounlist.length)];
-}
 
 client.on('ready', function() {
   client.user.setGame(config.PRESENCE_MSG);
