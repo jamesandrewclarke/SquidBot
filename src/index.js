@@ -36,7 +36,6 @@ client.on('channelCreate', function(newChannel) {
   if (newChannel.type == 'text') {
       mainChannel.sendMessage(`**New text channel created:** ${newChannel}`);
   }
-
 });
 
 client.login(config.TOKEN);
