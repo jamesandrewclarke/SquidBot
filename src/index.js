@@ -7,12 +7,15 @@ const client = new Discord.Client();
 
 const config = require('./config.js');
 
+var mainChannel;
+
 function randomWord() {
   return nounlist[Math.floor(Math.random() * nounlist.length)];
 }
 
 client.on('ready', function() {
   client.user.setGame(config.PRESENCE_MSG);
+  mainChannel = client.channels.get(config.CHANNEL_ID);
 });
 
 client.on('message', function(message) {
@@ -22,13 +25,15 @@ client.on('message', function(message) {
 });
 
 client.on('guildMemberAdd', function(member) {
-  const channel = client.channels.get(config.CHANNEL_ID);
-  channel.sendMessage(`Welcome, ${member}!`);
+  mainChannel.sendMessage(`Welcome, ${member}!`);
 });
 
 client.on('guildMemberRemove', function(member) {
-  const channel = client.channels.get(config.CHANNEL_ID);
-  channel.sendMessage(`Goodbye, ${member}! Sorry to see you go :(`);
+  mainChannel.sendMessage(`Goodbye, ${member}! Sorry to see you go :(`);
+});
+
+client.on('channelCreate', function(newChannel) {
+  mainChannel.sendMessage(`New channel created: ${newChannel}`);
 });
 
 client.login(config.TOKEN);
