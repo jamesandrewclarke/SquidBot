@@ -4,6 +4,7 @@ const client = new Discord.Client();
 
 const config = require('./config.js');
 const randomWord = require('./util/RandomWord.js');
+const EmbedSchema = require('./util/EmbedSchema.js');
 
 var mainChannel;
 
@@ -14,21 +15,21 @@ client.on('ready', function() {
 
 client.on('message', function(message) {
   if (message.content.startsWith(`${config.COMMAND_PREFIX}cutescary`)) {
-    message.channel.send(`Cute or scary? **${randomWord()}**`); // eslint-disable-line quotes
+    message.channel.send(' ', {embed: EmbedSchema('Cute or scary?', randomWord())})
   }
 });
 
 client.on('guildMemberAdd', function(member) {
-  mainChannel.sendMessage(`Welcome, ${member}!`);
+  mainChannel.send(' ', {embed: EmbedSchema('Welcome, new member!', member.toString())})
 });
 
 client.on('guildMemberRemove', function(member) {
-  mainChannel.sendMessage(`Goodbye, ${member}! Sorry to see you go :(`);
+  mainChannel.send(' ', {embed: EmbedSchema('Sorry to see you go :(', member.toString())})
 });
 
 client.on('channelCreate', function(newChannel) {
   if (newChannel.type == 'text') {
-      mainChannel.sendMessage(`**New text channel created:** ${newChannel}`);
+      mainChannel.send(' ', {embed: EmbedSchema('New Text Channel', newChannel.toString())})
   }
 });
 
