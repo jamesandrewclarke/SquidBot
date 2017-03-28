@@ -6,10 +6,13 @@ class EmbedSchema {
     this.embed = {
       title: this.title,
       description: this.description,
-      timestamp: new Date(),
       color: 0x008cff,
+      provider: {
+        name: 'SquidBot'
+      },
       footer: {
         text: 'SquidBot',
+        icon_url: 'https://dac.cssnr.com/static/images/logo.png'
       }
     }
   }
