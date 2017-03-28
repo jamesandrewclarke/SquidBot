@@ -22,16 +22,22 @@ client.on('message', function(message) {
 });
 
 client.on('guildMemberAdd', function(member) {
-  mainChannel.send(' ', {embed: new EmbedSchemas.MemberJoin(member).get()})
+  mainChannel.send(' ', {
+    embed: new EmbedSchemas.MemberJoin(member).get()
+  });
 });
 
 client.on('guildMemberRemove', function(member) {
-  mainChannel.send(' ', {embed: new EmbedSchemas.MemberLeave(member).get()})
+  mainChannel.send(' ', {
+    embed: new EmbedSchemas.MemberLeave(member).get()
+  });
 });
 
 client.on('channelCreate', function(newChannel) {
   if (newChannel.type == 'text') {
-      mainChannel.send(' ', {embed: new EmbedSchemas.EmbedSchema('New Text Channel', newChannel.toString()).get()})
+      mainChannel.send(' ', {
+        embed: new EmbedSchemas.EmbedSchema('New Text Channel', newChannel.toString()).get()
+      });
   }
 });
 
