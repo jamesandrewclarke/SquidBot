@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 const config = require('./config.js');
 const randomWord = require('./util/RandomWord.js');
-const EmbedSchema = require('./util/EmbedSchema.js');
+const EmbedSchemas = require('./util/embeds/index.js');
 
 var mainChannel;
 
@@ -15,21 +15,23 @@ client.on('ready', function() {
 
 client.on('message', function(message) {
   if (message.content.startsWith(`${config.COMMAND_PREFIX}cutescary`)) {
-    message.channel.send(' ', {embed: EmbedSchema('Cute or scary?', `**${randomWord()}**`)})
+    message.channel.send(' ', {
+      embed: new EmbedSchemas.CuteScary(randomWord()).get()
+    });
   }
 });
 
 client.on('guildMemberAdd', function(member) {
-  mainChannel.send(' ', {embed: EmbedSchema('Welcome, new member!', member.toString())})
+  mainChannel.send(' ', {embed: new EmbedSchemas.MemberJoin(member).get()})
 });
 
 client.on('guildMemberRemove', function(member) {
-  mainChannel.send(' ', {embed: EmbedSchema('Sorry to see you go :(', member.toString())})
+  mainChannel.send(' ', {embed: new EmbedSchemas.EmbedSchema('Sorry to see you go :(', member.toString()).get()})
 });
 
 client.on('channelCreate', function(newChannel) {
   if (newChannel.type == 'text') {
-      mainChannel.send(' ', {embed: EmbedSchema('New Text Channel', newChannel.toString())})
+      mainChannel.send(' ', {embed: new EmbedSchemas.EmbedSchema('New Text Channel', newChannel.toString()).get()})
   }
 });
 
