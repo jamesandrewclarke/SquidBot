@@ -26,7 +26,7 @@ client.on('guildMemberAdd', function(member) {
 });
 
 client.on('guildMemberRemove', function(member) {
-  mainChannel.send(' ', {embed: new EmbedSchemas.EmbedSchema('Sorry to see you go :(', member.toString()).get()})
+  mainChannel.send(' ', {embed: new EmbedSchemas.MemberLeave(member).get()})
 });
 
 client.on('channelCreate', function(newChannel) {
