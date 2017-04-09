@@ -41,4 +41,26 @@ client.on('channelCreate', function(newChannel) {
   }
 });
 
+client.on('voiceStateUpdate', function(oldMember, newMember) {
+  if (oldMember.voiceChannelID != newMember.voiceChannelID) {
+    const guild = client.guilds.get(config.GUILD_ID);
+
+    const oldRoleName = `voicetext-${oldMember.voiceChannelID}`;
+    const newRoleName = `voicetext-${newMember.voiceChannelID}`;
+
+    const newRole = guild.roles.find('name', newRoleName);
+    const oldRole = guild.roles.find('name', oldRoleName);
+
+    const user = guild.members.get(newMember.id);
+
+    if (newRole) {
+      user.addRole(newRole);
+    }
+
+    if (oldRole) {
+      user.removeRole(oldRole);
+    }
+  }
+});
+
 client.login(config.TOKEN);
