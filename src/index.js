@@ -11,6 +11,7 @@ var mainChannel;
 client.on('ready', function() {
   client.user.setGame(config.PRESENCE_MSG);
   mainChannel = client.channels.get(config.CHANNEL_ID);
+  mainChannel.send('Seal.');
 });
 
 client.on('message', function(message) {
