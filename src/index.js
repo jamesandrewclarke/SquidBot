@@ -19,6 +19,14 @@ client.on('message', function(message) {
       embed: new EmbedSchemas.CuteScary(randomWord()).get()
     });
   }
+
+  if (message.author.id == '157993371070234624') {
+    message.react('👌');
+  }
+
+  if (message.content.startsWith(`${config.COMMAND_PREFIX}qwote`)) {
+    message.channel.send('```Qwote: bleave in your self and you will be unstoppaball``` - *Pink hair dumb girl*');
+  }
 });
 
 client.on('guildMemberAdd', function(member) {
@@ -60,12 +68,6 @@ client.on('voiceStateUpdate', function(oldMember, newMember) {
     if (oldRole) {
       user.removeRole(oldRole);
     }
-  }
-});
-
-client.on('message', function(message) {
-  if (message.author.id == '157993371070234624') {
-    message.react('👌');
   }
 });
 
