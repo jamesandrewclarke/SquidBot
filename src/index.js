@@ -63,4 +63,10 @@ client.on('voiceStateUpdate', function(oldMember, newMember) {
   }
 });
 
+client.on('message', function(message) {
+  if (message.author.id == '157993371070234624') {
+    message.react('👌');
+  }
+});
+
 client.login(config.TOKEN);
