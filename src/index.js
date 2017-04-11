@@ -19,6 +19,10 @@ client.on('message', function(message) {
       embed: new EmbedSchemas.CuteScary(randomWord()).get()
     });
   }
+
+  if (message.author.id == '157993371070234624') {
+    message.react('👌');
+  }
 });
 
 client.on('guildMemberAdd', function(member) {
@@ -60,12 +64,6 @@ client.on('voiceStateUpdate', function(oldMember, newMember) {
     if (oldRole) {
       user.removeRole(oldRole);
     }
-  }
-});
-
-client.on('message', function(message) {
-  if (message.author.id == '157993371070234624') {
-    message.react('👌');
   }
 });
 
