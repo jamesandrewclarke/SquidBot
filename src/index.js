@@ -7,7 +7,6 @@ const randomWord = require('./util/RandomWord.js');
 const EmbedSchemas = require('./util/embeds/index.js');
 
 var mainChannel;
-var reactions = false;
 
 client.on('ready', function() {
   client.user.setGame(config.PRESENCE_MSG);
@@ -24,7 +23,7 @@ client.on('message', function(message) {
   }
 
   if (message.author.id == '157993371070234624') {
-    if (reactions) {
+    if (config.REACTIONS_ENABLED == 'TRUE') {
       message.react('👌');
     }
   }
