@@ -7,7 +7,8 @@ const config = {
   CHANNEL_ID: process.env.CHANNEL || settings.discord.channel,
   COMMAND_PREFIX: ';',
   PRESENCE_MSG: process.env.PRESENCE_MSG || 'SquidBot | By Jamelele',
-  GUILD_ID: process.env.GUILD_ID || settings.discord.guild_id
+  GUILD_ID: process.env.GUILD_ID || settings.discord.guild_id,
+  REACTIONS_ENABLED: process.env.REACTIONS_ENABLED || settings.discord.reactions_enabled
 }
 
 module.exports = config;
