@@ -1,7 +1,7 @@
 class EmbedSchema {
-  constructor(title, description) {
-    this.title = title;
-    this.description = description;
+  constructor (title, description) {
+    this.title = title
+    this.description = description
 
     this.embed = {
       title: this.title,
@@ -17,9 +17,9 @@ class EmbedSchema {
     }
   }
 
-  get() {
-    return this.embed;
+  get () {
+    return this.embed
   }
 }
 
-module.exports = EmbedSchema;
+module.exports = EmbedSchema

@@ -1,8 +1,8 @@
-const EmbedSchema = require('./EmbedSchema.js');
+const EmbedSchema = require('./EmbedSchema.js')
 
 class CuteScaryEmbedSchema extends EmbedSchema {
-  constructor(randomWord) {
-    super('Cute or scary?', '\n');
+  constructor (randomWord) {
+    super('Cute or scary?', '\n')
 
     this.embed.fields = [
       {
@@ -14,4 +14,4 @@ class CuteScaryEmbedSchema extends EmbedSchema {
   }
 }
 
-module.exports = CuteScaryEmbedSchema;
+module.exports = CuteScaryEmbedSchema

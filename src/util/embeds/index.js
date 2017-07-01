@@ -5,4 +5,4 @@ const EmbedSchemas = {
   MemberLeave: require('./MemberLeaveEmbedSchema.js')
 }
 
-module.exports = EmbedSchemas;
+module.exports = EmbedSchemas

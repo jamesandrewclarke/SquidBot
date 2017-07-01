@@ -1,6 +1,6 @@
-var settings;
+var settings
 
-try { settings = require('../config.json'); } catch (e) { settings = {};}
+try { settings = require('../config.json') } catch (e) { settings = {} }
 
 const config = {
   TOKEN: process.env.DISCORD_TOKEN || settings.discord.token,
@@ -11,4 +11,4 @@ const config = {
   REACTIONS_ENABLED: process.env.REACTIONS_ENABLED || settings.discord.reactions_enabled
 }
 
-module.exports = config;
+module.exports = config

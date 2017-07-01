@@ -1,8 +1,8 @@
-const EmbedSchema = require('./EmbedSchema.js');
+const EmbedSchema = require('./EmbedSchema.js')
 
 class MemberJoinEmbedSchema extends EmbedSchema {
-  constructor(member) {
-    super('New member!', `Welcome ${member} to the server!`);
+  constructor (member) {
+    super('New member!', `Welcome ${member} to the server!`)
 
     this.embed.author = {
       name: member.displayName,
@@ -11,4 +11,4 @@ class MemberJoinEmbedSchema extends EmbedSchema {
   }
 }
 
-module.exports = MemberJoinEmbedSchema;
+module.exports = MemberJoinEmbedSchema
