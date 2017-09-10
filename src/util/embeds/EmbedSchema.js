@@ -6,7 +6,7 @@ class EmbedSchema {
     this.embed = {
       title: this.title,
       description: this.description,
-      color: 0xFD5F00,
+      color: 0x5ECDF,
       provider: {
         name: 'SquidBot'
       },
