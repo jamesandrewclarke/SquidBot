@@ -1,12 +1,12 @@
 class EmbedSchema {
-  constructor(title, description) {
-    this.title = title;
-    this.description = description;
+  constructor (title, description) {
+    this.title = title
+    this.description = description
 
     this.embed = {
       title: this.title,
       description: this.description,
-      color: 0xFD5F00,
+      color: 0x5ECDF,
       provider: {
         name: 'SquidBot'
       },
@@ -17,9 +17,9 @@ class EmbedSchema {
     }
   }
 
-  get() {
-    return this.embed;
+  get () {
+    return this.embed
   }
 }
 
-module.exports = EmbedSchema;
+module.exports = EmbedSchema
